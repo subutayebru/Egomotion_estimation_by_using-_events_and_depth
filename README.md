@@ -1,2 +1,2 @@
 # Egomotion_estimation_by_using_events_and_depth
-Master Thesis
+Ebru's Master Thesis
