@@ -9,3 +9,5 @@ import os
 def file_path(directory, filename):
     return os.path.join(directory, filename)
 
+print("hello")
+# %%
