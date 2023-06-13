@@ -65,7 +65,7 @@ T_baumer_1 = np.array([0.9101440571262656, -0.05112656051741041, 0.4111251270445
                        0, 0, 0, 1]).reshape((4,4))
 T_baumer_1[:3, :3] = np.eye(3)
 rotvec = R.from_matrix(T_lidar_baumer[:3, :3]).as_rotvec()
-T_hand_eye = T_lidar_baumer @ T_baumer_1 #identity 
+T_hand_eye = np.identity(4) 
 print(T_center_baumer.astype(np.float64))
 print(T_hand_eye.astype(np.float64))
 
