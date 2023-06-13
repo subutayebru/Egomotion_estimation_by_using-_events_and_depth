@@ -1,0 +1,24 @@
+Loading properties...
+ERIU Properties:
+	ebslam_numParticles   = 100
+	ebslam_resampleK      = 100
+	ebslam_updatePathN    = 100
+	ebslam_expDecayAlpha  = 0.01
+	ebslam_diffusePos     = 0.0008
+	ebslam_diffuseRot     = 0.0004
+	ebslam_mapUpdateMode  = -1
+	ebslam_scoreFilter    = 8
+	ebslam_resampleWheel  = 0
+	ebslam_mapCellSize    = 0.01
+
+Loading events... 2805818 events.
+slamming...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+Writing result path... done.
+Recording time [s]    : 50.1057
+Computation time [s]  : 97.8
+Events/s (recording)  : 55998
+Events/s (computation): 28689.3
