@@ -5,7 +5,8 @@ from mpl_toolkits.mplot3d import axes3d
 from scipy.spatial.transform import Rotation as R
 
 
-def plotPose(X, Y, Z, oriX, oriY, oriZ):
+
+def plotPose(X, Y, Z, oriX, oriY, oriZ, path_prefix, file_name):
     fig = plt.figure()
     ax = fig.gca(projection='3d')
     ax.scatter(X, Y, Z, cmap='jet', c=t, marker='.', alpha=1)
@@ -31,8 +32,9 @@ def plotPose(X, Y, Z, oriX, oriY, oriZ):
     plt.show()
 
 
-path_prefix = '/home/suman/data/evk4/sl1_car/25-05/' # take data
-pose = np.loadtxt(path_prefix + 'mocap_data.txt', delimiter=' ') 
+path_prefix = path_prefix
+file_name = file_name
+pose = np.loadtxt(path_prefix + file_name , delimiter=' ') 
 start_t = 0
 stop_t = pose[-1, 0]
 # T_lidar_1 = np.array([-0.0078031, 0.817209, 0.541196, 0.917704,
@@ -123,9 +125,9 @@ ori = pose[:, 4:]
 start_id = np.searchsorted(pos_time, start_t)
 stop_id = np.searchsorted(pos_time, stop_t)
 
-# start_id = 1
-# stop_id = 60
-# stop_id = pos_time.shape[0]
+start_id = 1
+stop_id = 60
+stop_id = pos_time.shape[0]
 
 X = pos[start_id:stop_id, 0]
 Y = pos[start_id:stop_id, 1]
@@ -146,4 +148,4 @@ oriX = rotation_matrices[:, :, 0]
 oriY = rotation_matrices[:, :, 1]
 oriZ = rotation_matrices[:, :, 2]
 
-plotPose(X, Y, Z, oriX, oriY, oriZ)
+plotPose(X, Y, Z, oriX, oriY, oriZ, '/home/bru/Dev/DATA/scn2_take01/take01/', 'gt.csv')
