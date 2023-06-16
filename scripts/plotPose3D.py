@@ -6,7 +6,7 @@ from scipy.spatial.transform import Rotation as R
 
 
 
-def plotPose(X, Y, Z, oriX, oriY, oriZ, path_prefix, file_name):
+def plotPose(X, Y, Z, oriX, oriY, oriZ):
     fig = plt.figure()
     ax = fig.gca(projection='3d')
     ax.scatter(X, Y, Z, cmap='jet', c=t, marker='.', alpha=1)
@@ -32,9 +32,15 @@ def plotPose(X, Y, Z, oriX, oriY, oriZ, path_prefix, file_name):
     plt.show()
 
 
-path_prefix = path_prefix
-file_name = file_name
-pose = np.loadtxt(path_prefix + file_name , delimiter=' ') 
+path_prefix = '/home/bru/Dev/DATA/scn2_take01/take01/'
+file_name = 'evo_gt.txt'
+full_path = file_path.file_path(path_prefix, file_name)
+
+with open('/home/bru/Dev/DATA/scn2_take01/take01/evo_gt.txt', encoding="Latin-1") as csvfile:  #change this according to your file 
+    reader = list(csv.reader(csvfile, delimiter=" "))
+
+    
+pose = np.array(reader)
 start_t = 0
 stop_t = pose[-1, 0]
 # T_lidar_1 = np.array([-0.0078031, 0.817209, 0.541196, 0.917704,
