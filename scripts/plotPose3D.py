@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
 from scipy.spatial.transform import Rotation as R
+import file_path
+import csv
 
 
 
@@ -36,7 +38,7 @@ path_prefix = '/home/bru/Dev/DATA/scn2_take01/take01/'
 file_name = 'evo_gt.txt'
 full_path = file_path.file_path(path_prefix, file_name)
 
-with open('/home/bru/Dev/DATA/scn2_take01/take01/evo_gt.txt', encoding="Latin-1") as csvfile:  #change this according to your file 
+with open(full_path, encoding="Latin-1") as csvfile:  #change this according to your file 
     reader = list(csv.reader(csvfile, delimiter=" "))
 
     
@@ -74,8 +76,8 @@ T_baumer_1 = np.array([0.9101440571262656, -0.05112656051741041, 0.4111251270445
 T_baumer_1[:3, :3] = np.eye(3)
 rotvec = R.from_matrix(T_lidar_baumer[:3, :3]).as_rotvec()
 T_hand_eye = np.identity(4) 
-print(T_center_baumer.astype(np.float64))
-print(T_hand_eye.astype(np.float64))
+#print(T_center_baumer.astype(np.float64))
+#print(T_hand_eye.astype(np.float64))
 
 # path_prefix = '/home/suman/data/rpg/DSEC/zurich_city_04-odometry/'
 #
@@ -154,4 +156,3 @@ oriX = rotation_matrices[:, :, 0]
 oriY = rotation_matrices[:, :, 1]
 oriZ = rotation_matrices[:, :, 2]
 
-plotPose(X, Y, Z, oriX, oriY, oriZ, '/home/bru/Dev/DATA/scn2_take01/take01/', 'gt.csv')
